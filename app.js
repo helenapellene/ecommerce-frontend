@@ -70,6 +70,7 @@ class Carrito {
     localStorage.setItem("carrito", JSON.stringify(this.carrito));
     // Actualizo el carrito en el HTML
     this.listar();
+    calcularTotal();
   }
 
   // Método para quitar o restar productos del carrito
@@ -119,7 +120,12 @@ class Carrito {
       this.total += producto.precio * producto.cantidad;
       this.totalProductos += producto.cantidad;
       
+
+
     }
+    
+    // Actualiza el total en el HTML
+    document.querySelector("#totalCarrito").innerText = this.total;
     
     const botonesQuitar = document.querySelectorAll(".btnQuitar");
     for (const boton of botonesQuitar) {
@@ -278,3 +284,8 @@ botonComprar.addEventListener("click", (event) => {
   document.querySelector("#carrdesp").classList.add("ocultar");
 });
 
+//intento de total jaj
+function calcularTotal(){
+  const total= carrito.carrito.reduce( (acc,el) => acc += el.cantidad, 0);
+  console.log("total");
+}
