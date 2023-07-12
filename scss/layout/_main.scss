@@ -1,0 +1,46 @@
+body{
+    background-color: rgb(183, 200, 202);
+    
+    margin-top:6rem;
+    
+}
+html, body {
+    height: 100%;
+  }
+
+.main-sect{
+    width: 100%;
+    height:200px;
+}
+
+h1{
+    font-family: 'Ubuntu', sans-serif;
+    color:rgb(3, 3, 3);
+    margin: 3.5rem 0 3.5rem 3.5rem ; //arriba derecha abajo izq
+    text-align: center;
+}
+
+.envios{
+    width:100%;
+    height:100px;
+    background: linear-gradient(white, rgb(157, 170, 172));
+    margin-top:3rem;
+    .lista-envio{
+        display:flex;
+        justify-content: center;
+        gap:3rem;
+        li{
+            font-family: 'Ubuntu', sans-serif;
+            font-weight: bold;
+            color:rgb(46, 44, 44);
+            list-style: none;
+            margin-top: 1rem;
+            .div-icon{
+                width:40px;
+            }
+            dt{
+               margin-left: 2.5rem;
+            }
+        }        
+    }
+}

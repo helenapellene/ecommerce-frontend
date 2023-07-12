@@ -1,0 +1,222 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+}
+
+body {
+  font-family: "Ubuntu", sans-serif;
+  font-family: "League Spartan", sans-serif;
+}
+
+#carrito {
+  max-height: 400px;
+  overflow-y: auto;
+  background-color: white;
+}
+
+.boton {
+  display: flex;
+  position: fixed;
+  right: 0;
+  z-index: 1000;
+  padding: 20px;
+}
+.boton button {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  background: url("../assets/shopping-cart.png") center center no-repeat rgb(241, 241, 243);
+  background-size: cover;
+  cursor: pointer;
+  box-shadow: 0px 0px 14px 0px rgba(219, 215, 215, 0.2);
+}
+.boton button h1 {
+  display: flex;
+}
+.boton button h1 #cantidadProductos {
+  background-color: red;
+  border-radius: 150px;
+  padding: 5px;
+  width: 30px;
+  text-align: center;
+  font-size: 12px;
+  margin: -10px 0 0 30px;
+}
+
+.btnAgregar,
+.btnQuitar,
+.btnComp {
+  color: white;
+  background-color: rgb(31, 32, 32);
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 14px 0px rgba(192, 188, 188, 0.2);
+  margin: 10px 0;
+  border: 1px solid rgb(31, 32, 32);
+}
+.btnAgregar:hover,
+.btnQuitar:hover,
+.btnComp:hover {
+  border: 1px solid white;
+}
+
+.productoCarrito {
+  border-bottom: 2px dashed rgba(0, 0, 0, 0.2);
+  padding: 10px 0;
+  margin-bottom: 10px;
+  line-height: 24px;
+}
+.productoCarrito h2 {
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+
+#productos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  height: 200px;
+  margin-top: 3rem;
+  margin-left: 3rem;
+  text-align: center;
+}
+
+.producto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  width: 200px;
+  height: auto;
+}
+.producto:hover {
+  border: 1px solid black;
+  box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.2);
+}
+.producto h1 {
+  font-size: 18px;
+  font-weight: bold;
+}
+.producto .precio {
+  font-size: 20px;
+  background-color: rgb(5, 70, 16);
+  display: inline-block;
+  padding: 4px 10px;
+  color: white;
+  border-radius: 10px;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.producto .imagen {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.producto .imagen img {
+  max-height: 150px;
+}
+.producto .btnAgregar {
+  margin: auto;
+  display: block;
+  text-align: center;
+}
+
+header .navbar {
+  max-width: 100%;
+  height: 70px;
+  background-color: rgb(183, 200, 202) !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  transition: all 0.3s ease-in-out;
+}
+header .navbar .logo {
+  width: 100px;
+}
+header .navbar .nav-sections {
+  font-size: 17px;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: bold;
+  gap: 2rem;
+}
+header .navbar .nav-sections li a {
+  color: rgb(3, 3, 3) !important;
+}
+header .navbar .nav-sections li a:hover {
+  text-decoration: underline;
+}
+header .navbar .searchbar {
+  max-width: 50%;
+  margin-top: 15px;
+}
+
+.nav-icon {
+  width: 30px;
+  margin: 0 1rem 1.5rem 0;
+  display: flex;
+  margin-top: 2rem;
+}
+.nav-icon .cartitem {
+  list-style: none;
+  margin-top: 2rem;
+}
+
+body {
+  background-color: rgb(183, 200, 202);
+  margin-top: 6rem;
+}
+
+html, body {
+  height: 100%;
+}
+
+.main-sect {
+  width: 100%;
+  height: 200px;
+}
+
+h1 {
+  font-family: "Ubuntu", sans-serif;
+  color: rgb(3, 3, 3);
+  margin: 3.5rem 0 3.5rem 3.5rem;
+  text-align: center;
+}
+
+.envios {
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(white, rgb(157, 170, 172));
+  margin-top: 3rem;
+}
+.envios .lista-envio {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+.envios .lista-envio li {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: bold;
+  color: rgb(46, 44, 44);
+  list-style: none;
+  margin-top: 1rem;
+}
+.envios .lista-envio li .div-icon {
+  width: 40px;
+}
+.envios .lista-envio li dt {
+  margin-left: 2.5rem;
+}
+
+/*# sourceMappingURL=style.css.map */

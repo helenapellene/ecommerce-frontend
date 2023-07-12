@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Link to remixicon cdn -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="./assets/logo.png">
+  <title>Document</title>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary navbar">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
+          aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="./index.html"><img src="./assets/logo.png" class="logo"
+            alt="logo-lanochedelasautoras"></a>
+        <ul class="navbar-nav justify-content-end nav-sections">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              categorias
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">arte</a></li>
+              <li><a class="dropdown-item" href="#">biografias</a></li>
+              <li><a class="dropdown-item" href="#">derecho</a></li>
+              <li><a class="dropdown-item" href="#">filosofia</a></li>
+              <li><a class="dropdown-item" href="#">historia</a></li>
+              <li><a class="dropdown-item" href="#">novelas y ficcion</a></li>
+              <li><a class="dropdown-item" href="#">ensayos</a></li>
+              <li><a class="dropdown-item" href="#">poesia</a></li>
+            </ul>
+          </li>
+          <!-- <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">categorias</a>
+                  </li> -->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">autoras</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#Novedades">novedades</a>
+          </li>
+        </ul>
+        <div class="input-group mb-3 searchbar">
+          <input id="inputBuscar" type="text" class="form-control" placeholder="Buscar titulo, autora, editorial.."
+            aria-label="Book's name" aria-describedby="button-addon2">
+          <button class="btn btn-outline-secondary" type="button" id="botonBuscar">🔍︎</button>
+        </div>
+      </div>
+
+    </nav>
+
+  </header>
+  <main>
+    <!-- <section>
+      <div class="container flex_carrito">
+        <button
+          class="botoncarrito"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasRight"
+          aria-controls="offcanvasRight"
+        >
+          <h1>
+            <img src="./assets/shopping-cart.png" class="carr-icon">
+            <span id="cantidadProductos">0</span>
+          </h1>
+        </button>
+        <div
+          class="offcanvas offcanvas-end"
+          tabindex="-1"
+          id="offcanvasRight"
+          aria-labelledby="offcanvasRightLabel"
+        >
+          <div class="offcanvas-header">
+            <h2>Total: $<span id="totalCarrito">0</span></h2>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <div id="carrito"></div>
+          </div>
+        </div>
+
+
+</section> -->
+
+
+
+
+
+
+
+    <div class="boton">
+      <button class="btn btn-primary" 
+      type="button" 
+      data-bs-toggle="offcanvas" 
+      data-bs-target="#offcanvasWithBothOptions" 
+      aria-controls="offcanvasWithBothOptions">
+        <h1>
+          <img src="./assets/shopping-cart.png" class="carrimg">
+          <span id="cantidadProductos">0</span>
+        </h1>
+      </button>
+    </div>
+    
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+      <div class="offcanvas-header">
+        <h3>Total: $<span id="totalCarrito">0</span></h3>
+        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div id="carrito">
+          Aquí van los productos que se agreguen en el carrito 
+        </div>
+        <a href="#"><button id="btnComprar" class="btnComp">Comprar</button></a>
+      </div>
+    </div>
+
+    <section>
+      <div class="img-container">
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel"
+          data-bs-interval="2000">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="./assets/main2.png" class="d-block w-100 imgcar" alt="foto de annie">
+            </div>
+            <div class="carousel-item">
+              <img src="./assets/main3.png" class="d-block w-100 imgcar" alt="foto de remera">
+            </div>
+            <div class="carousel-item">
+              <img src="./assets/main.png" class="d-block w-100 imgcar" alt="foto de remera">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="envios">
+        <ul class="lista-envio">
+          <li>
+            <img src="./assets/map.png" class="div-icon">
+            Envios a todo el pais
+            <dl> <!--lista de definicion-->
+              <dt>
+                Pedi desde cualquier parte de Argentina <!--titulo-->
+              </dt>
+            </dl>
+          </li>
+          <li>
+            <img src="./assets/free-delivery.png" class="div-icon">
+            Envios gratis
+            <dl> <!--lista de definicion-->
+              <dt>
+                Para compras desde $3000 <!--titulo-->
+              </dt>
+            </dl>
+          </li>
+          <li>
+            <img src="./assets/debit-card.png" class="div-icon">
+            3 cuotas sin interes
+            <dl> <!--lista de definicion-->
+              <dt>
+                Con todas las tarjetas de credito<!--titulo-->
+              </dt>
+            </dl>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <h3 id="Novedades">NOVEDADES</h3>
+    <!-- Productos -->
+    <div id="productos">
+      <!-- Aqui van los productos que cargo en la base de datos -->
+    </div>
+
+
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script src="app.js"></script>
+</body>
+
+<footer>
+
+</footer>
+
+</html>
