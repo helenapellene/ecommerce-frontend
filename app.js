@@ -100,6 +100,7 @@ class Carrito {
     this.total = 0;
     this.totalProductos = 0;
     divCarrito.innerHTML = "";
+    
     // Recorre todos los productos del carrito y lo agregamos al div #carrito
     for (const producto of this.carrito) {
       divCarrito.innerHTML += `
@@ -117,6 +118,7 @@ class Carrito {
       // Actulizza los totales
       this.total += producto.precio * producto.cantidad;
       this.totalProductos += producto.cantidad;
+      
     }
     
     const botonesQuitar = document.querySelectorAll(".btnQuitar");
@@ -126,9 +128,9 @@ class Carrito {
         this.quitar(Number(boton.dataset.id));
       };
     }
-    // Actualizam variables carrito
-    spanCantidadProductos.innerText = this.totalProductos;
-    spanTotalCarrito.innerText = this.total;
+    // // Actualizam variables carrito
+    // spanCantidadProductos.innerText = this.totalProductos;
+    // spanTotalCarrito.innerText = this.total;
   }
 }
 
@@ -153,7 +155,7 @@ const divCarrito = document.querySelector("#carrito");
 const spanCantidadProductos = document.querySelector("#cantidadProductos");
 const spanTotalCarrito = document.querySelector("#totalCarrito");
 const inputBuscar = document.querySelector("#inputBuscar");
-const botonCarrito = document.querySelector("#carrdesp h1");
+const botonCarrito = document.querySelector("#carrdesp");
 const botonComprar = document.querySelector("#btnComprar");
 
 // Llama a la función
@@ -189,6 +191,15 @@ function cargarProductos(productos) {
       const producto = bd.registroPorId(id);
  
       carrito.agregar(producto);
+
+
+      const contenedorNumerito = document.querySelector("#contenedor-numerito");
+
+      contenedorNumerito.innerHTML="";
+
+      const numero = document.createElement('p');
+      contenedorNumerito.innerText=carrito.carrito.reduce( (acc,el) => acc += el.cantidad, 0)
+      contenedorNumerito.appendChild(numero);
     });
   }
 }

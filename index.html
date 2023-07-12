@@ -21,7 +21,7 @@
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap" rel="stylesheet">
   <link rel="shortcut icon" href="./assets/logo.png">
-  <title>Document</title>
+  <title>la noche de las autoras</title>
 </head>
 
 <body>
@@ -40,8 +40,7 @@
               categorias
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">arte</a></li>
-              <li><a class="dropdown-item" href="#">biografias</a></li>
+              <li><a class="dropdown-item" href="./pages/bio.html">biografias</a></li>
               <li><a class="dropdown-item" href="#">derecho</a></li>
               <li><a class="dropdown-item" href="#">filosofia</a></li>
               <li><a class="dropdown-item" href="#">historia</a></li>
@@ -79,17 +78,18 @@
 
 
 
-    <div class="boton">
+    <div class="boton" id="carrdesp">
       <button class="btn btn-primary" 
       type="button" 
       data-bs-toggle="offcanvas" 
       data-bs-target="#offcanvasWithBothOptions" 
       aria-controls="offcanvasWithBothOptions">
-        <h1>
+        <!-- <h1>
           <img src="./assets/shopping-cart.png" class="carrimg">
           <span id="cantidadProductos">0</span>
-        </h1>
+        </h1> -->
       </button>
+      <div id="contenedor-numerito"></div>
     </div>
     
     <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
