@@ -163,21 +163,40 @@ cargarProductos(bd.traerRegistros());
 
 function cargarProductos(productos) {
   divProductos.innerHTML = "";
+  
+  // Verificar si se ha realizado una búsqueda
+  const palabra = inputBuscar.value.toLowerCase();
+  const esBusqueda = palabra.length > 0;
+
   // Recorre todos los productos y lo agregamos al div #productos
   for (const producto of productos) {
-   
     divProductos.innerHTML += `
-        <div class="producto">
-            <h2>${producto.nombre}</h2>
-            <span>${producto.autor}</span>
-            <div class="imagen">
-              <img src="assets/${producto.imagen}" />
-            </div>
-            <p class="precio">$${producto.precio}</p>
-            <a href="#" class="btnAgregar" data-id="${producto.id}">Agregar al carrito</a>
+      <div class="producto">
+        <h2>${producto.nombre}</h2>
+        <span>${producto.autor}</span>
+        <div class="imagen">
+          <img src="assets/${producto.imagen}" />
         </div>
+        <p class="precio">$${producto.precio}</p>
+        <a href="#" class="btnAgregar" data-id="${producto.id}">Agregar al carrito</a>
+      </div>
     `;
   }
+
+  // Verifico si es una busqueda y oculto los elementos correspondientes
+  if (esBusqueda) {
+    divProductos.classList.add("hide");
+    document.querySelector(".img-container").classList.add("hide");
+    document.querySelector(".envios").classList.add("hide");
+  } else {
+    divProductos.classList.remove("hide");
+    document.querySelector(".img-container").classList.remove("hide");
+    document.querySelector(".envios").classList.remove("hide");
+    document.querySelector("#Novedades").classList.remove("hide");
+    
+
+  }
+
 
  
   const botonesAgregar = document.querySelectorAll(".btnAgregar");
