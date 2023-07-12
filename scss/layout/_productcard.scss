@@ -18,50 +18,20 @@
     background-size: cover;
     cursor: pointer;
     box-shadow: 0px 0px 14px 0px rgba(219, 215, 215, 0.2);
-    h1 {
-      display:flex;
-      #cantidadProductos {
-        background-color: red;
-        border-radius: 150px;
-        padding: 5px;
-        width: 30px;
-        text-align: center;
-        font-size: 12px;
-        margin: -10px 0 0 30px;
-      }
+    #contenedor-numerito {
+      background-color: red;
+      border-radius: 150px;
+      padding: 5px;
+      width: 20px;
+      height:30px;
+      text-align: center;
+      font-size: 12px;
+      margin: -15px 0 0 30px;
     }
     
   }
 }
 
-
-
-
-// .botoncarrito {
-//   background-color: white;
-//   border-spacing: 5px 5px;
-//   border: 6px solid rgba(161, 161, 161, 0.281);
-// }
-
-// #cantidadProductos {
-//   color: #ef7401;
-// }
-
-
-
-
-// .carr-icon {
-
-//   height: 100px;
-// }
-
-// .flex_carrito {
-//   position: fixed;
-//   display: flex;
-//   justify-content: right;
-// z-index: 20000;
-
-// }
 
 
 

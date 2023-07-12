@@ -42,13 +42,13 @@ class BaseDeDatos {
 // Clase carrito
 class Carrito {
   constructor() {
-    //storage
     const carritoStorage = JSON.parse(localStorage.getItem("carrito"));
     this.carrito = carritoStorage || [];
     this.total = 0;
     this.totalProductos = 0;
     this.listar();
   }
+
 
 
 

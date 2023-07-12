@@ -70,41 +70,39 @@
     
       </header>
       <main>
-        
-    
-    
-    
-    
-    
-    
-    
-        <div class="boton">
+        <div class="boton" id="carrdesp">
           <button class="btn btn-primary" 
           type="button" 
           data-bs-toggle="offcanvas" 
           data-bs-target="#offcanvasWithBothOptions" 
           aria-controls="offcanvasWithBothOptions">
-            <h1>
+            <!-- <h1>
               <img src="./assets/shopping-cart.png" class="carrimg">
               <span id="cantidadProductos">0</span>
-            </h1>
+            </h1> -->
+            <div id="contenedor-numerito"></div>
           </button>
+          
         </div>
         
         <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
           <div class="offcanvas-header">
             <h3>Total: $<span id="totalCarrito">0</span></h3>
-            <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
+            
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
           <div class="offcanvas-body">
             <div id="carrito">
               Aquí van los productos que se agreguen en el carrito 
             </div>
-            <a href="#"><button id="btnComprar" class="btnComp">Comprar</button></a>
+            <a href="#"><button id="btnComprar" class="btnComp">COMPRAR</button></a>
           </div>
         </div>
-
+      </main> 
+    
+    
+    
+ 
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <script src="../app.js"></script>
