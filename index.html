@@ -10,9 +10,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
     crossorigin="anonymous"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Syriac+Eastern&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,47 +25,52 @@
 </head>
 
 <body>
-  <header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary navbar">
-      <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
-          aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="./index.html"><img src="./assets/logo.png" class="logo"
-            alt="logo-lanochedelasautoras"></a>
-        <ul class="navbar-nav justify-content-end nav-sections">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              categorias
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="./pages/bio.html">biografias</a></li>
-              <li><a class="dropdown-item" href="#">derecho</a></li>
-              <li><a class="dropdown-item" href="#">filosofia</a></li>
-              <li><a class="dropdown-item" href="#">historia</a></li>
-              <li><a class="dropdown-item" href="#">novelas y ficcion</a></li>
-              <li><a class="dropdown-item" href="#">ensayos</a></li>
-              <li><a class="dropdown-item" href="#">poesia</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">autoras</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#Novedades">novedades</a>
-          </li>
-        </ul>
-        <div class="input-group mb-3 searchbar">
-          <input id="inputBuscar" type="text" class="form-control" placeholder="Buscar titulo, autora, editorial.."
-            aria-label="Book's name" aria-describedby="button-addon2">
-          <button class="btn btn-outline-secondary" type="button" id="botonBuscar">🔍︎</button>
-        </div>
+<header>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary navbar">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
+        aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="./index.html"><img src="./assets/logo.png" class="logo"
+          alt="logo-lanochedelasautoras"></a>
+      <ul class="navbar-nav justify-content-end nav-sections">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            autoras
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#"></a></li>
+            <li><a class="dropdown-item" href="#">derecho</a></li>
+            <li><a class="dropdown-item" href="#">filosofia</a></li>
+            <li><a class="dropdown-item" href="#">historia</a></li>
+            <li><a class="dropdown-item" href="#">novelas</a></li>
+            <li><a class="dropdown-item" href="#">ensayos</a></li>
+            <li><a class="dropdown-item" href="#">poesia</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#Novedades">novedades</a>
+        </li>
+      </ul>
+      <div class="input-group mb-3 searchbar">
+        <input id="inputBuscar" type="text" class="form-control" placeholder="Buscar titulo, autora, editorial.."
+          aria-label="Book's name" aria-describedby="button-addon2">
+        <button class="btn btn-outline-secondary" type="button" id="botonBuscar">🔍︎</button>
       </div>
-
-    </nav>
-
-  </header>
+      <div class="boton" id="carrdesp">
+        <button class="btn btn-primary" 
+        type="button" 
+        data-bs-toggle="offcanvas" 
+        data-bs-target="#offcanvasWithBothOptions" 
+        aria-controls="offcanvasWithBothOptions">
+          <div id="contenedor-numerito"></div>
+        </button>
+        
+      </div>
+    </div>
+  </nav>
+</header>
   <main>
     
 
@@ -74,17 +79,6 @@
 
 
 
-
-    <div class="boton" id="carrdesp">
-      <button class="btn btn-primary" 
-      type="button" 
-      data-bs-toggle="offcanvas" 
-      data-bs-target="#offcanvasWithBothOptions" 
-      aria-controls="offcanvasWithBothOptions">
-        <div id="contenedor-numerito"></div>
-      </button>
-      
-    </div>
     
     <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
       <div class="offcanvas-header">
@@ -99,9 +93,17 @@
         <a href="#"><button id="btnComprar" class="btnComp">COMPRAR</button></a>
       </div>
     </div>
-
+    <ul id="categoria" class="cat">
+      <li><a class="btnAgregar btnCat" href="#" data-categoria="Biografias">BIOGRAFIAS</a></li>
+      <li><a class="btnAgregar btnCat" href="#" data-categoria="Filosofia">FILOSOFIA</a></li>
+      <li><a class="btnAgregar btnCat" href="#" data-categoria="Novelas">NOVELAS</a></li>
+      <li><a class="btnAgregar btnCat" href="#" data-categoria="Ensayos">ENSAYOS</a></li>
+      <li><a class="btnAgregar btnCat" href="#" data-categoria="Poesia">POESIA</a></li>
+    </ul>
+    
     <section>
-      <div class="img-container">
+      
+      <div id="imgContainer" class="img-container">
         <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel"
           data-bs-interval="2000">
           <div class="carousel-inner">

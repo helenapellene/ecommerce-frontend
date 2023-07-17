@@ -5,8 +5,7 @@
 }
 
 body {
-  font-family: "Ubuntu", sans-serif;
-  font-family: "League Spartan", sans-serif;
+  font-family: "Noto Sans Syriac Eastern", sans-serif;
 }
 
 .btnAgregar,
@@ -26,6 +25,7 @@ body {
 .btnQuitar:hover,
 .btnComp:hover {
   border: 1px solid white;
+  background-color: rgb(44, 49, 49);
 }
 
 .btnComp {
@@ -41,6 +41,10 @@ body {
   display: none;
 }
 
+.seleccionado {
+  background-color: red;
+}
+
 #carrito {
   max-height: 400px;
   overflow-y: auto;
@@ -49,10 +53,7 @@ body {
 
 .boton {
   display: flex;
-  position: fixed;
-  right: 0;
-  z-index: 1000;
-  padding: 20px;
+  margin-right: 1rem;
 }
 .boton button {
   width: 50px;
@@ -68,7 +69,7 @@ body {
   border-radius: 150px;
   padding: 5px;
   width: 20px;
-  height: 30px;
+  height: 20px;
   text-align: center;
   font-size: 12px;
   margin: -15px 0 0 30px;
@@ -228,6 +229,22 @@ h1 {
 }
 .envios .lista-envio li dt {
   margin-left: 2.5rem;
+}
+
+.cat {
+  display: flex;
+  list-style: none; /* Para quitar los puntos de lista */
+  padding: 0; /* Para quitar el relleno predeterminado de la lista */
+  justify-content: center;
+  gap: 3rem;
+}
+.cat li {
+  margin-right: 10px;
+  align-items: center;
+}
+.cat li a {
+  display: flex;
+  align-items: center;
 }
 
 /*# sourceMappingURL=style.css.map */

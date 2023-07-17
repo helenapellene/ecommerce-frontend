@@ -44,3 +44,20 @@ h1{
         }        
     }
 }
+
+.cat {
+    display: flex;
+    list-style: none; /* Para quitar los puntos de lista */
+    padding: 0; /* Para quitar el relleno predeterminado de la lista */
+    justify-content: center;
+    gap:3rem;
+    li{
+        margin-right: 10px;
+        align-items: center;
+        a{
+            display: flex;
+  align-items: center;
+        }
+    }
+  }
+  

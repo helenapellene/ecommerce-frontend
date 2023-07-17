@@ -2,22 +2,22 @@
 
 
 class BaseDeDatos {
-    constructor() {
-      // Array de la base de datos
-      this.productos = [];
-      this.agregarRegistro(1, "Prosa completa", "Alejandra Pizarnik",7500,"prosaPiz.png");
-      this.agregarRegistro(2, "Quien no","Claudia Piñero", 3000, "clau2.png");
-      this.agregarRegistro(3, "Muerte en la vicaria","Agatha Chrstie", 6400, "agatha.png");
-      this.agregarRegistro(4, "Catedrales","Claudia Piñeiro", 6000, "clau1.png");
-      this.agregarRegistro(5, "Novelas breves", "Elena Garro", 4100, "garro.png");
-      this.agregarRegistro(6, "Poesia Completa","Alejandra Pizarnik", 6500,"poesiaPiz.png");
-      this.agregarRegistro(7, "La casa de los espiritus","Isabel Allende", 3000, "isabel.png");
-      this.agregarRegistro(8, "Diarios","Alejandra Pizarnik", 7500, "diariosPiz.png");
-      this.agregarRegistro(10, "Orlando","Virginia Woolf", 4500, "virgi.png");
-    }
-    // Método que crea el objeto producto y lo almacena en el array con un push
-  agregarRegistro(id, nombre, autor, precio, imagen) {
-    const producto = new Producto(id, nombre, autor, precio, imagen);
+  constructor() {
+    // Array de la base de datos
+    this.productos = [];
+    this.agregarRegistro(1, "Prosa completa", "Alejandra Pizarnik", 7500, "Poesia", "prosaPiz.png");
+    this.agregarRegistro(2, "Quien no", "Claudia Piñero", 3000, "Novelas", "clau2.png");
+    this.agregarRegistro(3, "Muerte en la vicaria", "Agatha Chrstie", 6400, "Novelas", "agatha.png");
+    this.agregarRegistro(4, "Catedrales", "Claudia Piñeiro", 6000, "Novelas", "clau1.png");
+    this.agregarRegistro(5, "Novelas breves", "Elena Garro", 4100, "Novelas", "garro.png");
+    this.agregarRegistro(6, "Poesia Completa", "Alejandra Pizarnik", 6500, "Poesia", "poesiaPiz.png");
+    this.agregarRegistro(7, "La casa de los espiritus", "Isabel Allende", 3000, "Novelas", "isabel.png");
+    this.agregarRegistro(8, "Diarios", "Alejandra Pizarnik", 7500, "Biografias", "diariosPiz.png");
+    this.agregarRegistro(10, "Orlando", "Virginia Woolf", 4500, "Novelas", "virgi.png");
+  }
+  // Método que crea el objeto producto y lo almacena en el array con un push
+  agregarRegistro(id, nombre, autor, precio, categoria, imagen) {
+    const producto = new Producto(id, nombre, autor, precio, categoria, imagen);
     this.productos.push(producto);
   }
 
@@ -34,10 +34,17 @@ class BaseDeDatos {
   // Retorna una lista (array) de productos que incluyan en el nombre los caracteres
   // que le pasemos por parámetro.
   registrosPorNombre(palabra) {
-    return this.productos.filter((producto) => 
+    return this.productos.filter((producto) =>
       producto.nombre.toLowerCase().includes(palabra) || producto.autor.toLowerCase().includes(palabra));
   }
+
+  registrosPorCategoria(categoria) {
+    return this.productos.filter((producto) => producto.categoria == categoria);
+
+  }
 }
+
+
 
 // Clase carrito
 class Carrito {
@@ -86,7 +93,7 @@ class Carrito {
     // Actualizo el carrito en el HTML
     this.listar();
   }
-  
+
 
   vaciar() {
     this.carrito = [];
@@ -101,7 +108,7 @@ class Carrito {
     this.total = 0;
     this.totalProductos = 0;
     divCarrito.innerHTML = "";
-    
+
     // Recorre todos los productos del carrito y lo agregamos al div #carrito
     for (const producto of this.carrito) {
       divCarrito.innerHTML += `
@@ -119,14 +126,14 @@ class Carrito {
       // Actulizza los totales
       this.total += producto.precio * producto.cantidad;
       this.totalProductos += producto.cantidad;
-      
+
 
 
     }
-    
+
     // Actualiza el total en el HTML
     document.querySelector("#totalCarrito").innerText = this.total;
-    
+
     const botonesQuitar = document.querySelectorAll(".btnQuitar");
     for (const boton of botonesQuitar) {
       boton.onclick = (event) => {
@@ -143,11 +150,12 @@ class Carrito {
 
 // Clase para los productos
 class Producto {
-  constructor(id, nombre, autor, precio, imagen = false) {
+  constructor(id, nombre, autor, precio, categoria, imagen = false) {
     this.id = id;
     this.nombre = nombre;
     this.precio = precio;
     this.autor = autor;
+    this.categoria = categoria;
     this.imagen = imagen;
   }
 }
@@ -163,13 +171,54 @@ const spanTotalCarrito = document.querySelector("#totalCarrito");
 const inputBuscar = document.querySelector("#inputBuscar");
 const botonCarrito = document.querySelector("#carrdesp");
 const botonComprar = document.querySelector("#btnComprar");
+const botonCat = document.querySelectorAll(".btnCat");
+
+// Agregamos el evento "click" a cada botón de categoría
+botonCat.forEach((boton) => {
+  boton.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    // Removemos la clase "seleccionado" de cualquier botón seleccionado previamente
+    const botonSeleccionado = document.querySelector(".seleccionado");
+    if (botonSeleccionado) {
+      botonSeleccionado.classList.remove("seleccionado");
+    }
+
+    // Añadimos la clase "seleccionado" al botón que fue clickeado
+    boton.classList.add("seleccionado");
+
+    // Obtenemos la categoría seleccionada del atributo "data-categoria"
+    const categoria = boton.dataset.categoria;
+
+    // Filtramos los productos por categoría y mostramos solo los productos de esa categoría
+    const productosPorCategoria = bd.registrosPorCategoria(categoria);
+    cargarProductos(productosPorCategoria);
+
+    // Ocultar el img-container y el #Novedades cuando se filtra por categoría
+    document.getElementById("imgContainer").style.display = "none";
+    document.getElementById("Novedades").style.display = "none";
+  });
+});
+
+// Función para mostrar nuevamente el img-container y el #Novedades cuando se muestren todos los productos
+function mostrarImagenYTitulo() {
+  document.getElementById("imgContainer").style.display = "block";
+  document.getElementById("Novedades").style.display = "block";
+}
+
+// Llama a la función para mostrar el img-container y el #Novedades al cargar todos los productos
+cargarProductos(bd.traerRegistros());
+mostrarImagenYTitulo();
+
+
+
 
 // Llama a la función
 cargarProductos(bd.traerRegistros());
 
 function cargarProductos(productos) {
   divProductos.innerHTML = "";
-  
+
   // Verificar si se ha realizado una búsqueda
   const palabra = inputBuscar.value.toLowerCase();
   const esBusqueda = palabra.length > 0;
@@ -199,31 +248,31 @@ function cargarProductos(productos) {
     document.querySelector(".img-container").classList.remove("hide");
     document.querySelector(".envios").classList.remove("hide");
     document.querySelector("#Novedades").classList.remove("hide");
-    
+
 
   }
 
 
- 
+
   const botonesAgregar = document.querySelectorAll(".btnAgregar");
   for (const boton of botonesAgregar) {
     // Le agrega un evento click a cada uno
     boton.addEventListener("click", (event) => {
       event.preventDefault();
-    
+
       const id = Number(boton.dataset.id);
-    
+
       const producto = bd.registroPorId(id);
- 
+
       carrito.agregar(producto);
 
 
       const contenedorNumerito = document.querySelector("#contenedor-numerito");
 
-      contenedorNumerito.innerHTML="";
+      contenedorNumerito.innerHTML = "";
 
       const numero = document.createElement('p');
-      contenedorNumerito.innerText=carrito.carrito.reduce( (acc,el) => acc += el.cantidad, 0)
+      contenedorNumerito.innerText = carrito.carrito.reduce((acc, el) => acc += el.cantidad, 0)
       contenedorNumerito.appendChild(numero);
     });
   }
@@ -285,7 +334,7 @@ botonComprar.addEventListener("click", (event) => {
 });
 
 //intento de total jaj
-function calcularTotal(){
-  const total= carrito.carrito.reduce( (acc,el) => acc += el.cantidad, 0);
+function calcularTotal() {
+  const total = carrito.carrito.reduce((acc, el) => acc += el.cantidad, 0);
   console.log("total");
 }
