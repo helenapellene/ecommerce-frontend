@@ -279,13 +279,7 @@ botonBuscar.addEventListener("click", (event) => {
   const palabra = inputBuscar.value;
   const productos = bd.registrosPorNombre(palabra.toLowerCase());
   cargarProductos(productos);
-  if (productos.length > 0) {
-    document.getElementById("imgContainer").classList.remove("hide");
-    document.querySelector(".envios").classList.remove("hide");
-  } else {
-    document.getElementById("imgContainer").classList.add("hide");
-    document.querySelector(".envios").classList.add("hide");
-  }
+  
 });
 
 // Buscador: al presionar la tecla ENTER se ejecuta el evento 
@@ -295,13 +289,6 @@ inputBuscar.addEventListener("keydown", (event) => {
     const palabra = inputBuscar.value;
     const productos = bd.registrosPorNombre(palabra.toLowerCase());
     cargarProductos(productos);
-    if (productos.length > 0) {
-      document.getElementById("imgContainer").classList.remove("hide");
-      document.querySelector(".envios").classList.remove("hide");
-    } else {
-      document.getElementById("imgContainer").classList.add("hide");
-      document.querySelector(".envios").classList.add("hide");
-    }
   }
 });
 
