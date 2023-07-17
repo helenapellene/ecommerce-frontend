@@ -5,24 +5,11 @@ class BaseDeDatos {
   constructor() {
     // Array de la base de datos
     this.productos = [];
-    this.agregarRegistro(1, "Prosa completa", "Alejandra Pizarnik", 7500, "Poesia", "prosaPiz.png");
-    this.agregarRegistro(2, "Quien no", "Claudia Piñero", 3000, "Novelas", "clau2.png");
-    this.agregarRegistro(3, "Muerte en la vicaria", "Agatha Chrstie", 6400, "Novelas", "agatha.png");
-    this.agregarRegistro(4, "Catedrales", "Claudia Piñeiro", 6000, "Novelas", "clau1.png");
-    this.agregarRegistro(5, "Novelas breves", "Elena Garro", 4100, "Novelas", "garro.png");
-    this.agregarRegistro(6, "Poesia Completa", "Alejandra Pizarnik", 6500, "Poesia", "poesiaPiz.png");
-    this.agregarRegistro(7, "La casa de los espiritus", "Isabel Allende", 3000, "Novelas", "isabel.png");
-    this.agregarRegistro(8, "Diarios", "Alejandra Pizarnik", 7500, "Biografias", "diariosPiz.png");
-    this.agregarRegistro(10, "Orlando", "Virginia Woolf", 4500, "Novelas", "virgi.png");
   }
-  // Método que crea el objeto producto y lo almacena en el array con un push
-  agregarRegistro(id, nombre, autor, precio, categoria, imagen) {
-    const producto = new Producto(id, nombre, autor, precio, categoria, imagen);
-    this.productos.push(producto);
-  }
-
   // Nos retorna el array con todos los productos de la base de datos
-  traerRegistros() {
+  async traerRegistros() {
+    const response = await fetch('./productos.json');
+    this.productos = await response.json();
     return this.productos;
   }
 
@@ -206,15 +193,11 @@ function mostrarImagenYTitulo() {
   document.getElementById("Novedades").style.display = "block";
 }
 
-// Llama a la función para mostrar el img-container y el #Novedades al cargar todos los productos
-cargarProductos(bd.traerRegistros());
-mostrarImagenYTitulo();
-
-
-
 
 // Llama a la función
-cargarProductos(bd.traerRegistros());
+bd.traerRegistros().then(
+  (productos) => cargarProductos(productos));
+mostrarImagenYTitulo();
 
 function cargarProductos(productos) {
   divProductos.innerHTML = "";
