@@ -1,6 +1,3 @@
-
-
-
 class BaseDeDatos {
   constructor() {
     // Array de la base de datos
@@ -279,7 +276,6 @@ botonBuscar.addEventListener("click", (event) => {
   const palabra = inputBuscar.value;
   const productos = bd.registrosPorNombre(palabra.toLowerCase());
   cargarProductos(productos);
-  
 });
 
 // Buscador: al presionar la tecla ENTER se ejecuta el evento 
