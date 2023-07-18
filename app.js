@@ -44,8 +44,8 @@ class Carrito {
 
 
   // Verificamos si el producto está en el carrito. 
-  estaEnCarrito({ id }) {
-    return this.carrito.find((producto) => producto.id === id);
+  estaEnCarrito(producto) {
+    return this.carrito.find((p) => p.id === producto.id);
   }
 
   // Agrega el producto al carrito
@@ -132,7 +132,6 @@ class Carrito {
 }
 
 
-// Clase para los productos
 class Producto {
   constructor(id, nombre, autor, precio, categoria, imagen = false) {
     this.id = id;
@@ -194,7 +193,7 @@ function mostrarImagenYTitulo() {
 // Llama a la función
 bd.traerRegistros().then(
   (productos) => cargarProductos(productos));
-mostrarImagenYTitulo();
+mostrarImagenYTitulo
 
 function cargarProductos(productos) {
   divProductos.innerHTML = "";
@@ -223,16 +222,13 @@ function cargarProductos(productos) {
     divProductos.classList.add("hide");
     document.querySelector(".img-container").classList.add("hide");
     document.querySelector(".envios").classList.add("hide");
+    document.querySelector("#Novedades").classList.add("hide");
   } else {
     divProductos.classList.remove("hide");
     document.querySelector(".img-container").classList.remove("hide");
     document.querySelector(".envios").classList.remove("hide");
     document.querySelector("#Novedades").classList.remove("hide");
-
-
   }
-
-
 
   const botonesAgregar = document.querySelectorAll(".btnAgregar");
   for (const boton of botonesAgregar) {
@@ -244,31 +240,21 @@ function cargarProductos(productos) {
 
       const producto = bd.registroPorId(id);
 
-      carrito.agregar(producto);
+      // Verificar si el producto existe
+      if (producto) {
+        carrito.agregar(producto);
 
+        const contenedorNumerito = document.querySelector("#contenedor-numerito");
 
-      const contenedorNumerito = document.querySelector("#contenedor-numerito");
+        contenedorNumerito.innerHTML = "";
 
-      contenedorNumerito.innerHTML = "";
-
-      const numero = document.createElement('p');
-      contenedorNumerito.innerText = carrito.carrito.reduce((acc, el) => acc += el.cantidad, 0)
-      contenedorNumerito.appendChild(numero);
+        const numero = document.createElement('p');
+        contenedorNumerito.innerText = carrito.carrito.reduce((acc, el) => acc += el.cantidad, 0)
+        contenedorNumerito.appendChild(numero);
+      }
     });
   }
 }
-
-// // Buscador: al soltar una tecla se ejecuta el evento keyup
-// inputBuscar.addEventListener("keyup", (event) => {
-//   event.preventDefault();
-//   // Obtiene el atributo value del input
-//   const palabra = inputBuscar.value;
-//   // Pide a nuestra base de datos que nos traiga todos los registros
-//   // que coincidan con la palabra que pusimos en nuestro input
-//   const productos = bd.registrosPorNombre(palabra.toLowerCase());
-//   // Lo muestra en el HTML
-//   cargarProductos(productos);
-// });
 
 // Buscador: al presionar el boton de busqueda se ejecuta el evento 
 botonBuscar.addEventListener("click", (event) => {
