@@ -83,6 +83,7 @@ body {
 }
 .productoCarrito h2 {
   font-size: 17px;
+  font-weight: bold;
   margin-bottom: 8px;
 }
 
@@ -102,7 +103,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 14px;
+  font-size: 13px;
+  font-weight: bold;
   border: 1px solid rgba(0, 0, 0, 0.4);
   background-color: white;
   border-radius: 10px;
@@ -114,9 +116,10 @@ body {
   border: 1px solid black;
   box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.2);
 }
-.producto h1 {
-  font-size: 18px;
+.producto h2 {
+  font-size: 24px;
   font-weight: bold;
+  margin-bottom: 8px;
 }
 .producto .precio {
   font-size: 20px;
@@ -230,6 +233,12 @@ h1 {
 .cat li a {
   display: flex;
   align-items: center;
+}
+
+.nov {
+  margin-top: 2rem;
+  text-align: center;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=style.css.map */
