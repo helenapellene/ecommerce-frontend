@@ -1,85 +1,59 @@
-footer {
-    background: #0E1219;
-    color: white;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    position: absolute;
+.footer {
+    position: relative;
     width: 100%;
-    bottom: 0px;
-    .footer-top-wrapper {
+    background: rgb(128, 140, 141);
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 200px;
+    .menu {
+        position: relative;
         display: flex;
-        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: 10px 0;
         flex-wrap: wrap;
-        gap: 48px;
-        margin: 0 auto;
-        padding: 16px;
-        min-height: 160px;
-        .footer-top {
-            max-width: 800px;
-            .logo {
-                width: 180px;
-                margin-bottom: 8px;
+        gap: 10px;
+        li{
+            list-style: none;
+        }
+        .menu__link {
+            font-size: 1.2rem;
+            color: #0c0c0c;
+            font-weight: bold;
+            margin: 0 10px;
+            display: inline-block;
+            transition: 0.5s;
+            text-decoration: none;
+            opacity: 0.75;
+            list-style: none;
+            &:hover{
+                color: #444242;
             }
         }
-        
-    }
-    
-
-
-    
-}
-
-
-.footer-top-wrapper > section {
-    width: 180px;
-}
-
-menu {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    h2 {
-        text-align: left;
-        color: #d2d0e6;
-        margin-top: 0px;
-        margin-bottom: 16px;
-        opacity: 0.7;
-        font-size: 16px;
-        font-weight: 600;
-    }
-    li {
-        margin-bottom: 16px;
     }
     
 }
 
 
-.social-links {
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
-    width: 180px;
-    img {
-        width: 24px;
-        height: 24px;
-    }
-}
 
 
-.footer-bottom {
-    height: 60px;
-    margin-top: 48px;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    background-color: #1f1b3d;
-    padding: 4px;
+
+
+.menu__link:hover {
+    opacity: 1;
 }
 
-.footer-bottom > small {
-    font-size: 16px;
-    margin: 0 4px;
+.footer p {
+    color: #fff;
+    margin: 15px 0 10px 0;
+    font-size: 1rem;
+    font-weight: 300;
 }
+
+.logo-footer{
+    width:90px;
+}
+
