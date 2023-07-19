@@ -1,81 +1,83 @@
 [
     {
-        "id":1,
-        "nombre":"Prosa completa",
-        "autor":"Alejandra Pizarnik",
-        "precio":7500,
-        "categoria":"Poesia",
-        "esNov":true,
-        "imagen":"prosaPiz.png"
-},
-{
-    "id":2,
-        "nombre":"Quien no",
-        "autor":"Claudia Piñero",
-        "precio":3000,
-        "categoria":"Novelas",
-        "esNov":true,
-        "imagen":"clau2.png"
-},
-{
-    "id":3,
-    "nombre":"Muerte en la vicaria",
-    "autor":"Agatha Christie",
-    "precio":6400,
-    "categoria":"Novelas",
-    "esNov":true,
-    "imagen":"agatha.png"
-},
-{
-    "id":4,
-        "nombre":"Catedrales",
-        "autor":"Claudia Piñeiro",
-        "precio":6000,
-        "categoria":"Novelas",
-        "esNov":true,
-        "imagen":"clau1.png"
-},
-{
-    "id":5,
-        "nombre":"Novelas breves",
-        "autor":"Elena Garro",
-        "precio":4100,
-        "categoria":"Novelas",
-        "esNov":false,
-        "imagen":"garro.png"
-},
-{"id":6,
-"nombre":"Poesia Completa",
-"autor":"Alejandra Pizarnik",
-"precio":6500,
-"categoria":"Poesia",
-"esNov":false,
-"imagen":"poesiaPiz.png"
-},
-{"id":7,
-"nombre":"La casa de los espiritus",
-"autor":"Isabel Allende",
-"precio":3000,
-"categoria":"Novelas",
-"esNov":false,
-"imagen":"isabel.png"
-},
-{"id":8,
-"nombre":"Diarios",
-"autor":"Alejandra Pizarnik",
-"precio":7500,
-"categoria":"Biografias",
-"esNov":false,
-"imagen":"diariosPiz.png"
-},
-{"id":9,
-"nombre":"Orlando",
-"autor":"Virginia Woolf",
-"precio":4500,
-"categoria":"Novelas",
-"esNov":false,
-"imagen":"virgi.png"
-}
+        "id": 1,
+        "nombre": "Prosa completa",
+        "autor": "Alejandra Pizarnik",
+        "precio": 7500,
+        "categoria": "Poesia",
+        "esNov": true,
+        "imagen": "prosaPiz.png"
+    },
+    {
+        "id": 2,
+        "nombre": "Quien no",
+        "autor": "Claudia Piñero",
+        "precio": 3000,
+        "categoria": "Novelas",
+        "esNov": true,
+        "imagen": "clau2.png"
+    },
+    {
+        "id": 3,
+        "nombre": "Muerte en la vicaria",
+        "autor": "Agatha Christie",
+        "precio": 6400,
+        "categoria": "Novelas",
+        "esNov": true,
+        "imagen": "agatha.png"
+    },
+    {
+        "id": 4,
+        "nombre": "Catedrales",
+        "autor": "Claudia Piñeiro",
+        "precio": 6000,
+        "categoria": "Novelas",
+        "esNov": true,
+        "imagen": "clau1.png"
+    },
+    {
+        "id": 5,
+        "nombre": "Novelas breves",
+        "autor": "Elena Garro",
+        "precio": 4100,
+        "categoria": "Novelas",
+        "esNov": false,
+        "imagen": "garro.png"
+    },
+    {
+        "id": 6,
+        "nombre": "Poesia Completa",
+        "autor": "Alejandra Pizarnik",
+        "precio": 6500,
+        "categoria": "Poesia",
+        "esNov": false,
+        "imagen": "poesiaPiz.png"
+    },
+    {
+        "id": 7,
+        "nombre": "La casa de los espiritus",
+        "autor": "Isabel Allende",
+        "precio": 3000,
+        "categoria": "Novelas",
+        "esNov": false,
+        "imagen": "isabel.png"
+    },
+    {
+        "id": 8,
+        "nombre": "Diarios",
+        "autor": "Alejandra Pizarnik",
+        "precio": 7500,
+        "categoria": "Biografias",
+        "esNov": false,
+        "imagen": "diariosPiz.png"
+    },
+    {
+        "id": 9,
+        "nombre": "Orlando",
+        "autor": "Virginia Woolf",
+        "precio": 4500,
+        "categoria": "Novelas",
+        "esNov": false,
+        "imagen": "virgi.png"
+    }
 ]
-
-

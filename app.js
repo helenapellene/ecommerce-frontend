@@ -140,7 +140,7 @@ class Carrito {
 
 
 class Producto {
-  constructor(id, nombre, autor, precio, categoria,esNov, imagen = false) {
+  constructor(id, nombre, autor, precio, categoria,esNov=false, imagen = false) {
     this.id = id;
     this.nombre = nombre;
     this.precio = precio;
@@ -185,6 +185,7 @@ botonCat.forEach((boton) => {
     const productosPorCategoria = bd.registrosPorCategoria(categoria);
     cargarProductos(productosPorCategoria);
 
+    
     // Ocultar el img-container y el #Novedades cuando se filtra por categoría
     document.getElementById("imgContainer").style.display = "none";
     document.getElementById("Novedades").style.display = "none";
@@ -229,9 +230,19 @@ function cargarProductos(productos) {
   const palabra = inputBuscar.value.toLowerCase();
   const esBusqueda = palabra.length > 0;
 
+  const categoriaSeleccionada = document.querySelector(".seleccionado");
+  if (categoriaSeleccionada) {
+    const categoria = categoriaSeleccionada.dataset.categoria;
+    productos = bd.registrosPorCategoria(categoria);
+  }
+
  // Filtramos los productos por novedades (esNov === true) solo si no se está realizando una búsqueda
  if (!esBusqueda) {
   productos = productos.filter((producto) => producto.esNov === true);
+}
+
+if (divProductos.id === "Novedades") {
+  productos = bd.registrosNovedades();
 }
  // Recorre todos los productos y lo agregamos al div #productos
  for (const producto of productos) {
