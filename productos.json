@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": "pizarnik",
         "nombre": "Prosa completa",
         "autor": "Alejandra Pizarnik",
         "precio": 7500,
@@ -9,16 +9,16 @@
         "imagen": "prosaPiz.png"
     },
     {
-        "id": 2,
+        "id": "piñeiro",
         "nombre": "Quien no",
-        "autor": "Claudia Piñero",
+        "autor": "Claudia Piñeiro",
         "precio": 3000,
         "categoria": "Novelas",
         "esNov": true,
         "imagen": "clau2.png"
     },
     {
-        "id": 3,
+        "id": "christie",
         "nombre": "Muerte en la vicaria",
         "autor": "Agatha Christie",
         "precio": 6400,
@@ -27,7 +27,7 @@
         "imagen": "agatha.png"
     },
     {
-        "id": 4,
+        "id": "piñeiro",
         "nombre": "Catedrales",
         "autor": "Claudia Piñeiro",
         "precio": 6000,
@@ -36,7 +36,7 @@
         "imagen": "clau1.png"
     },
     {
-        "id": 5,
+        "id": "garro",
         "nombre": "Novelas breves",
         "autor": "Elena Garro",
         "precio": 4100,
@@ -45,7 +45,7 @@
         "imagen": "garro.png"
     },
     {
-        "id": 6,
+        "id": "pizarnik",
         "nombre": "Poesia Completa",
         "autor": "Alejandra Pizarnik",
         "precio": 6500,
@@ -54,7 +54,7 @@
         "imagen": "poesiaPiz.png"
     },
     {
-        "id": 7,
+        "id": "allende",
         "nombre": "La casa de los espiritus",
         "autor": "Isabel Allende",
         "precio": 3000,
@@ -63,7 +63,7 @@
         "imagen": "isabel.png"
     },
     {
-        "id": 8,
+        "id": "pizarnik",
         "nombre": "Diarios",
         "autor": "Alejandra Pizarnik",
         "precio": 7500,
@@ -72,7 +72,7 @@
         "imagen": "diariosPiz.png"
     },
     {
-        "id": 9,
+        "id": "wolf",
         "nombre": "Orlando",
         "autor": "Virginia Woolf",
         "precio": 4500,

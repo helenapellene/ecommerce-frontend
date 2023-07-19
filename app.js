@@ -27,9 +27,9 @@ class BaseDeDatos {
 
   }
 
- registrosNovedades() {
-  return this.productos.filter((producto) => producto.esNov === true);
-}
+  registrosNovedades() {
+    return this.productos.filter((producto) => producto.esNov === true);
+  }
 
 
 
@@ -62,7 +62,10 @@ class Carrito {
       productoEnCarrito.cantidad++;
     } else {
       // Si no esta, lo agregoa al carrito
-      this.carrito.push({ ...producto, cantidad: 1 });
+      this.carrito.push({
+        ...producto,
+        cantidad: 1
+      });
     }
     // Actualizo el storage
     localStorage.setItem("carrito", JSON.stringify(this.carrito));
@@ -140,13 +143,13 @@ class Carrito {
 
 
 class Producto {
-  constructor(id, nombre, autor, precio, categoria,esNov=false, imagen = false) {
+  constructor(id, nombre, autor, precio, categoria, esNov = false, imagen = false) {
     this.id = id;
     this.nombre = nombre;
     this.precio = precio;
     this.autor = autor;
     this.categoria = categoria;
-    this.esNov=esNov;
+    this.esNov = esNov;
     this.imagen = imagen;
   }
 }
@@ -185,7 +188,7 @@ botonCat.forEach((boton) => {
     const productosPorCategoria = bd.registrosPorCategoria(categoria);
     cargarProductos(productosPorCategoria);
 
-    
+
     // Ocultar el img-container y el #Novedades cuando se filtra por categoría
     document.getElementById("imgContainer").style.display = "none";
     document.getElementById("Novedades").style.display = "none";
@@ -198,25 +201,6 @@ function mostrarImagenYTitulo() {
   document.getElementById("Novedades").style.display = "block";
 }
 
-function cargarNov(productos){
-  const novEl = document.getElementById('Novedades') ;
-  novEl.innerHTML="";
-
-  for (const producto of productos){
-    novEl.innerHTML+=`
-    <div class="producto">
-      <h2>${producto.nombre}</h2>
-      <span>${producto.autor}</span>
-      <div class="imagen">
-        <img src="assets/${producto.imagen}" />
-      </div>
-      <p class="precio">$${producto.precio}</p>
-      <a href="#" class="btnAgregar" data-id="${producto.id}">Agregar al carrito</a>
-    </div>
-  `;
-}
-  }
-
 
 // Llama a la función
 bd.traerRegistros().then(
@@ -226,27 +210,34 @@ mostrarImagenYTitulo
 function cargarProductos(productos) {
   divProductos.innerHTML = "";
 
+  // Filtramos los productos por novedades (esNov === true) primero
+  const productosNovedades = productos.filter((producto) => producto.esNov === true);
+  // const productosNoNovedades = productos.filter((producto) => producto.esNov === false);
+  // const productosOrdenados = [...productosNovedades, ...productosNoNovedades];
+
   // Verificar si se ha realizado una búsqueda
   const palabra = inputBuscar.value.toLowerCase();
   const esBusqueda = palabra.length > 0;
 
   const categoriaSeleccionada = document.querySelector(".seleccionado");
-  if (categoriaSeleccionada) {
+
+  let productosFiltrados;
+
+  if (esBusqueda) {
+    // Filtrar productos por nombre
+    productosFiltrados = bd.registrosPorNombre(palabra);
+  } else if (categoriaSeleccionada) {
+    // Filtrar productos por categoría
     const categoria = categoriaSeleccionada.dataset.categoria;
-    productos = bd.registrosPorCategoria(categoria);
+    productosFiltrados = bd.registrosPorCategoria(categoria);
+  } else {
+    // Mostrar solo los productos con esNov: true al inicio del sitio
+    productosFiltrados = productosNovedades;
   }
 
- // Filtramos los productos por novedades (esNov === true) solo si no se está realizando una búsqueda
- if (!esBusqueda) {
-  productos = productos.filter((producto) => producto.esNov === true);
-}
-
-if (divProductos.id === "Novedades") {
-  productos = bd.registrosNovedades();
-}
- // Recorre todos los productos y lo agregamos al div #productos
- for (const producto of productos) {
-  divProductos.innerHTML += `
+  // Recorre todos los productos y los agregamos al div #productos
+  for (const producto of productosFiltrados) {
+    divProductos.innerHTML += `
     <div class="producto">
       <h2>${producto.nombre}</h2>
       <span>${producto.autor}</span>
@@ -257,7 +248,7 @@ if (divProductos.id === "Novedades") {
       <a href="#" class="btnAgregar" data-id="${producto.id}">Agregar al carrito</a>
     </div>
   `;
-}
+  }
 
   // Verifico si es una búsqueda y oculto los elementos correspondientes
   if (esBusqueda) {
@@ -272,12 +263,6 @@ if (divProductos.id === "Novedades") {
     document.querySelector("#Novedades").classList.remove("hide");
   }
 
-  // Filtrar y mostrar solo las novedades
-  const novedades = bd.registrosNovedades();
- 
-
-
-
   const botonesAgregar = document.querySelectorAll(".btnAgregar");
   for (const boton of botonesAgregar) {
     // Le agrega un evento click a cada uno
@@ -285,7 +270,6 @@ if (divProductos.id === "Novedades") {
       event.preventDefault();
 
       const id = Number(boton.dataset.id);
-
       const producto = bd.registroPorId(id);
 
       // Verificar si el producto existe
@@ -293,7 +277,6 @@ if (divProductos.id === "Novedades") {
         carrito.agregar(producto);
 
         const contenedorNumerito = document.querySelector("#contenedor-numerito");
-
         contenedorNumerito.innerHTML = "";
 
         const numero = document.createElement('p');
@@ -303,6 +286,8 @@ if (divProductos.id === "Novedades") {
     });
   }
 }
+
+
 
 // Buscador: al presionar el boton de busqueda se ejecuta el evento 
 botonBuscar.addEventListener("click", (event) => {
