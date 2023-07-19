@@ -26,6 +26,13 @@ class BaseDeDatos {
     return this.productos.filter((producto) => producto.categoria == categoria);
 
   }
+
+ registrosNovedades() {
+  return this.productos.filter((producto) => producto.esNov === true);
+}
+
+
+
 }
 
 
@@ -133,12 +140,13 @@ class Carrito {
 
 
 class Producto {
-  constructor(id, nombre, autor, precio, categoria, imagen = false) {
+  constructor(id, nombre, autor, precio, categoria,esNov, imagen = false) {
     this.id = id;
     this.nombre = nombre;
     this.precio = precio;
     this.autor = autor;
     this.categoria = categoria;
+    this.esNov=esNov;
     this.imagen = imagen;
   }
 }
@@ -189,6 +197,25 @@ function mostrarImagenYTitulo() {
   document.getElementById("Novedades").style.display = "block";
 }
 
+function cargarNov(productos){
+  const novEl = document.getElementById('Novedades') ;
+  novEl.innerHTML="";
+
+  for (const producto of productos){
+    novEl.innerHTML+=`
+    <div class="producto">
+      <h2>${producto.nombre}</h2>
+      <span>${producto.autor}</span>
+      <div class="imagen">
+        <img src="assets/${producto.imagen}" />
+      </div>
+      <p class="precio">$${producto.precio}</p>
+      <a href="#" class="btnAgregar" data-id="${producto.id}">Agregar al carrito</a>
+    </div>
+  `;
+}
+  }
+
 
 // Llama a la función
 bd.traerRegistros().then(
@@ -202,22 +229,26 @@ function cargarProductos(productos) {
   const palabra = inputBuscar.value.toLowerCase();
   const esBusqueda = palabra.length > 0;
 
-  // Recorre todos los productos y lo agregamos al div #productos
-  for (const producto of productos) {
-    divProductos.innerHTML += `
-      <div class="producto">
-        <h2>${producto.nombre}</h2>
-        <span>${producto.autor}</span>
-        <div class="imagen">
-          <img src="assets/${producto.imagen}" />
-        </div>
-        <p class="precio">$${producto.precio}</p>
-        <a href="#" class="btnAgregar" data-id="${producto.id}">Agregar al carrito</a>
+ // Filtramos los productos por novedades (esNov === true) solo si no se está realizando una búsqueda
+ if (!esBusqueda) {
+  productos = productos.filter((producto) => producto.esNov === true);
+}
+ // Recorre todos los productos y lo agregamos al div #productos
+ for (const producto of productos) {
+  divProductos.innerHTML += `
+    <div class="producto">
+      <h2>${producto.nombre}</h2>
+      <span>${producto.autor}</span>
+      <div class="imagen">
+        <img src="assets/${producto.imagen}" />
       </div>
-    `;
-  }
+      <p class="precio">$${producto.precio}</p>
+      <a href="#" class="btnAgregar" data-id="${producto.id}">Agregar al carrito</a>
+    </div>
+  `;
+}
 
-  // Verifico si es una busqueda y oculto los elementos correspondientes
+  // Verifico si es una búsqueda y oculto los elementos correspondientes
   if (esBusqueda) {
     divProductos.classList.add("hide");
     document.querySelector(".img-container").classList.add("hide");
@@ -229,6 +260,12 @@ function cargarProductos(productos) {
     document.querySelector(".envios").classList.remove("hide");
     document.querySelector("#Novedades").classList.remove("hide");
   }
+
+  // Filtrar y mostrar solo las novedades
+  const novedades = bd.registrosNovedades();
+ 
+
+
 
   const botonesAgregar = document.querySelectorAll(".btnAgregar");
   for (const boton of botonesAgregar) {
