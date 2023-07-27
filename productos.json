@@ -79,5 +79,42 @@
         "categoria": "Novelas",
         "esNov": false,
         "imagen": "virgi.png"
+    },
+    {
+        "id": 10,
+        "nombre": "Prostitucion/Trabajo Sexual",
+        "autor": "Diana Maffia - Claudia Korol",
+        "precio": 4500,
+        "categoria": "Ensayos",
+        "esNov": false,
+        "imagen": "prost.png"
+ 
+    },
+    {
+        "id": 11,
+        "nombre": "La Promesa",
+        "autor": "Silvina Ocampo",
+        "precio": 4500,
+        "categoria": "Novelas",
+        "esNov": false,
+        "imagen": "silvprom.png"
+    },
+    {
+        "id": 12,
+        "nombre": "Invenciones del Recuerdo",
+        "autor": "Silvina Ocampo",
+        "precio": 4500,
+        "categoria": "Biografias",
+        "esNov": false,
+        "imagen": "silvauto.png"
+    },
+    {
+        "id": 13,
+        "nombre": "El segundo genero",
+        "autor": "Simone de Beauvoir",
+        "precio": 4500,
+        "categoria": "Filosofia",
+        "esNov": false,
+        "imagen": "simfil.png"
     }
 ]
