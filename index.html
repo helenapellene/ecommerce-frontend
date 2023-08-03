@@ -28,32 +28,36 @@
   <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary navbar">
       <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
-          aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
         <a class="navbar-brand" href="index.html"><img src="assets/logo.png" class="logo"
             alt="logo-lanochedelasautoras"></a>
-        <ul class="navbar-nav justify-content-end nav-sections">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#Novedades">novedades</a>
-          </li>
-        </ul>
-        <div class="input-group mb-3 searchbar">
-          <input id="inputBuscar" type="text" class="form-control" placeholder="Buscar titulo, autora, editorial.."
-            aria-label="Book's name" aria-describedby="button-addon2">
-          <button class="btn btn-outline-secondary" type="button" id="botonBuscar">🔍︎</button>
-        </div>
-        <div class="boton" id="carrdesp">
-          <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
-            <div id="contenedor-numerito"></div>
-          </button>
-
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul  class="navbar-nav me-auto justify-content-end mb-lg-0 nav-sections">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#Novedades">novedades</a>
+            </li>
+          </ul>
+          <form class="d-flex mb-3 searchbar">
+            <input id="inputBuscar" type="text" class="form-control" placeholder="Buscar titulo, autora, editorial.."
+              aria-label="Book's name" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" type="button" id="botonBuscar">🔍︎</button>
+          </form>
+          <div class="boton" id="carrdesp">
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+              <div id="contenedor-numerito"></div>
+            </button>
+  
+          </div>
         </div>
       </div>
     </nav>
   </header>
+
+  
   <main>
 
 
@@ -134,25 +138,25 @@
 
   <footer class="footer">
     <div class="waves">
-        <img src="./assets/logo.png" class="logo-footer" >
+      <img src="./assets/logo.png" class="logo-footer">
     </div>
     <ul class="menu">
-        <li class="menu__item">
-            <a class="menu__link" href="#">
-                inicio
-    </a>
-        </li>
-        <li class="menu__item">
-            <a class="menu__link" href="#">
-                novedades
-    </a>
-        </li>
-        <li class="menu__item">
-            <a class="menu__link" href="#">
-                contacto
-    </a>
-        </li>
-       
+      <li class="menu__item">
+        <a class="menu__link" href="#">
+          inicio
+        </a>
+      </li>
+      <li class="menu__item">
+        <a class="menu__link" href="#">
+          novedades
+        </a>
+      </li>
+      <li class="menu__item">
+        <a class="menu__link" href="#">
+          contacto
+        </a>
+      </li>
+
     </ul>
     <p>&copy; HELENA PELLENE | todos los derechos reservados </p>
   </footer>
